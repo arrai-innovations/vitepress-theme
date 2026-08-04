@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 
-import { breadcrumbsForRoute } from "../src/breadcrumbs.js";
+import { breadcrumbsForRoute, routeWithoutBase } from "../src/breadcrumbs.js";
 
 describe("breadcrumbsForRoute", () => {
     it("builds linked page crumbs and non-linking structural crumbs", () => {
@@ -35,5 +35,19 @@ describe("breadcrumbsForRoute", () => {
 
     it("returns no crumbs for the site root", () => {
         expect(breadcrumbsForRoute("/")).toEqual([]);
+    });
+});
+
+describe("routeWithoutBase", () => {
+    it("removes a non-root deployment base", () => {
+        expect(routeWithoutBase("/vueda/reference/components/buttons.html", "/vueda/")).toBe(
+            "/reference/components/buttons.html",
+        );
+        expect(routeWithoutBase("/vueda/", "/vueda/")).toBe("/");
+    });
+
+    it("leaves root-based and unrelated routes unchanged", () => {
+        expect(routeWithoutBase("/guide/data-layer", "/")).toBe("/guide/data-layer");
+        expect(routeWithoutBase("/other/page", "/vueda/")).toBe("/other/page");
     });
 });

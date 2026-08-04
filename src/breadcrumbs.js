@@ -20,6 +20,24 @@ const normalizeRoute = (route) => {
     return withoutQuery.replace(/\.html$/, "").replace(/\/+$/, "");
 };
 
+/**
+ * Remove a VitePress deployment base from a route path.
+ *
+ * @param {string} route - Current VitePress route.
+ * @param {string} base - Configured VitePress base.
+ * @returns {string} Route relative to the documentation root.
+ */
+export const routeWithoutBase = (route, base = "/") => {
+    const normalizedBase = `/${base.replace(/^\/+|\/+$/g, "")}`;
+    if (normalizedBase === "/") {
+        return route;
+    }
+    if (route === normalizedBase || route === `${normalizedBase}/`) {
+        return "/";
+    }
+    return route.startsWith(`${normalizedBase}/`) ? route.slice(normalizedBase.length) : route;
+};
+
 const normalizeEntry = (entry, fallbackText) => {
     if (typeof entry === "string") {
         return { text: entry, link: true };

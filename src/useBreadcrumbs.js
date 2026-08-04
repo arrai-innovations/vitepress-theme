@@ -1,7 +1,7 @@
 import { computed } from "vue";
 import { useData, useRoute } from "vitepress";
 
-import { breadcrumbsForRoute } from "./breadcrumbs.js";
+import { breadcrumbsForRoute, routeWithoutBase } from "./breadcrumbs.js";
 
 /**
  * Resolve the current page's configured breadcrumb state.
@@ -10,7 +10,7 @@ import { breadcrumbsForRoute } from "./breadcrumbs.js";
  */
 export const useBreadcrumbs = () => {
     const route = useRoute();
-    const { frontmatter, theme } = useData();
+    const { frontmatter, site, theme } = useData();
 
     const crumbs = computed(() => {
         if (frontmatter.value.layout === "home" || frontmatter.value.layout === false) {
@@ -21,7 +21,10 @@ export const useBreadcrumbs = () => {
         }
 
         const options = theme.value.breadcrumbs || {};
-        return breadcrumbsForRoute(route.path, options.routes || theme.value.routeTitles || {});
+        return breadcrumbsForRoute(
+            routeWithoutBase(route.path, site.value.base),
+            options.routes || theme.value.routeTitles || {},
+        );
     });
 
     const visible = computed(() => {
