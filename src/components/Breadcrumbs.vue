@@ -80,12 +80,18 @@ const { crumbs, visible } = useBreadcrumbs();
 
 .arrai-breadcrumbs a {
     color: var(--vp-c-text-2);
-    text-decoration: none;
-    transition: color 0.2s;
+    text-decoration-line: underline;
+    text-decoration-color: color-mix(in srgb, currentColor 42%, transparent);
+    text-decoration-thickness: 1px;
+    text-underline-offset: 3px;
+    transition:
+        color 0.2s,
+        text-decoration-color 0.2s;
 }
 
 .arrai-breadcrumbs a:hover {
     color: var(--vp-c-brand-1);
+    text-decoration-color: currentColor;
 }
 
 .arrai-breadcrumbs [aria-current="page"] {

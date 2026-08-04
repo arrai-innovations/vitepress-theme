@@ -4,7 +4,7 @@ import path from "node:path";
 
 import { afterEach, describe, expect, it } from "vitest";
 
-import { buildBreadcrumbRoutes } from "../src/config.js";
+import { arraiThemeRoot, buildBreadcrumbRoutes } from "../src/config.js";
 
 const temporaryDirectories = [];
 
@@ -27,6 +27,11 @@ afterEach(() => {
 });
 
 describe("buildBreadcrumbRoutes", () => {
+    it("exposes the package root for linked-package dev servers", () => {
+        expect(path.isAbsolute(arraiThemeRoot)).toBe(true);
+        expect(fs.existsSync(path.join(arraiThemeRoot, "package.json"))).toBe(true);
+    });
+
     it("indexes authored and generated pages and merges structural routes", () => {
         const docsRoot = fixtureDocs();
 

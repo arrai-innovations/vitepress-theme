@@ -1,5 +1,7 @@
 import type { BreadcrumbRouteIndex } from "./index.js";
 
+export const arraiThemeRoot: string;
+
 export interface BuildBreadcrumbRoutesOptions {
     docsRoot: string;
     exclude?: (relativePath: string) => boolean;

@@ -58,6 +58,21 @@ export default defineConfig({
 });
 ```
 
+For a local `link:` install, allow the resolved theme root through Vite's dev-server filesystem guard. Published
+installs are already inside the downstream dependency tree, but keeping this configuration supports both forms:
+
+```js
+import { arraiThemeRoot } from "@arrai-innovations/vitepress-theme/config";
+
+export default defineConfig({
+    vite: {
+        server: {
+            fs: { allow: [repoRoot, arraiThemeRoot] },
+        },
+    },
+});
+```
+
 Breadcrumbs appear when a page has at least two route segments. Change that threshold globally with `minDepth`, or set
 `breadcrumbs: false` in a page's frontmatter.
 

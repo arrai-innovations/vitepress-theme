@@ -1,5 +1,9 @@
 import fs from "node:fs";
 import path from "node:path";
+import { fileURLToPath } from "node:url";
+
+/** Absolute package root for Vite's local-link filesystem allowlist. */
+export const arraiThemeRoot = fileURLToPath(new URL("..", import.meta.url));
 
 const toPosixPath = (value) => value.split(path.sep).join("/");
 
