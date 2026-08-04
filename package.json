@@ -1,0 +1,74 @@
+{
+    "name": "@arrai-innovations/vitepress-theme",
+    "version": "0.1.0",
+    "description": "The shared Arrai Innovations documentation theme for VitePress.",
+    "type": "module",
+    "license": "BSD-3-Clause",
+    "packageManager": "pnpm@11.20.0",
+    "engines": {
+        "node": ">=22"
+    },
+    "files": [
+        "src",
+        "README.md",
+        "LICENSE"
+    ],
+    "exports": {
+        ".": {
+            "types": "./src/index.d.ts",
+            "import": "./src/index.js"
+        },
+        "./config": {
+            "types": "./src/config.d.ts",
+            "import": "./src/config.js"
+        },
+        "./brand.css": "./src/brand.css",
+        "./Layout.vue": "./src/Layout.vue",
+        "./Breadcrumbs.vue": "./src/components/Breadcrumbs.vue"
+    },
+    "scripts": {
+        "build:fixtures": "pnpm --stream --filter './fixtures/**' build",
+        "check": "pnpm lint && pnpm format && pnpm test && pnpm build:fixtures && pnpm package:check",
+        "coverage": "vitest run --coverage",
+        "dev:reactive-helpers": "pnpm --filter fixture-reactive-helpers dev",
+        "dev:vueda": "pnpm --filter fixture-vueda dev",
+        "fix": "pnpm lint:fix && pnpm format:fix",
+        "format": "prettier --check .",
+        "format:fix": "prettier --write .",
+        "lint": "eslint --no-warn-ignored .",
+        "lint:fix": "eslint --no-warn-ignored --fix .",
+        "package:check": "pnpm pack --dry-run",
+        "test": "vitest run",
+        "test:watch": "vitest"
+    },
+    "dependencies": {
+        "@fontsource-variable/darker-grotesque": "^5.3.0",
+        "@fontsource-variable/ibm-plex-sans": "^5.3.0",
+        "@fontsource-variable/jetbrains-mono": "^5.3.0"
+    },
+    "peerDependencies": {
+        "vitepress": "^1.6.4",
+        "vue": "^3.5.0"
+    },
+    "devDependencies": {
+        "@eslint/js": "^9.39.4",
+        "@vitest/coverage-v8": "^4.1.9",
+        "@vue/compiler-sfc": "^3.5.38",
+        "eslint": "^9.39.4",
+        "eslint-config-prettier": "^10.1.8",
+        "eslint-plugin-vue": "^10.9.2",
+        "globals": "^16.5.0",
+        "prettier": "^3.9.6",
+        "vitepress": "^1.6.4",
+        "vitest": "^4.1.9",
+        "vue": "^3.5.38"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/arrai-innovations/vitepress-theme.git"
+    },
+    "bugs": {
+        "url": "https://github.com/arrai-innovations/vitepress-theme/issues"
+    },
+    "homepage": "https://github.com/arrai-innovations/vitepress-theme#readme"
+}

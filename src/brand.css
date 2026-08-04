@@ -1,0 +1,204 @@
+@import "@fontsource-variable/darker-grotesque";
+@import "@fontsource-variable/ibm-plex-sans";
+@import "@fontsource-variable/jetbrains-mono";
+
+:root {
+    --arrai-docs-brand: #0077f7;
+    --arrai-docs-brand-strong: #005fcc;
+    --arrai-docs-brand-soft: rgba(0, 119, 247, 0.14);
+    --arrai-docs-accent: #f77700;
+    --arrai-docs-text: #111827;
+    --arrai-docs-text-muted: #526071;
+    --arrai-docs-bg: #f8fafc;
+    --arrai-docs-surface: #ffffff;
+    --arrai-docs-surface-muted: #eef2f6;
+    --arrai-docs-chrome: #e5e7eb;
+    --arrai-docs-chrome-strong: #d7dee8;
+    --arrai-docs-border: #d9e2ec;
+    --arrai-docs-code-bg: #edf2f7;
+    --arrai-docs-code-block-bg: #101820;
+    --arrai-docs-shadow: 0 1px 0 rgba(17, 24, 39, 0.04);
+
+    --vp-font-family-base: "IBM Plex Sans Variable", ui-sans-serif, system-ui, sans-serif;
+    --vp-font-family-heading: "Darker Grotesque Variable", ui-sans-serif, system-ui, sans-serif;
+    --vp-font-family-mono: "JetBrains Mono Variable", ui-monospace, SFMono-Regular, Menlo, monospace;
+    --vp-c-brand-1: var(--arrai-docs-brand-strong);
+    --vp-c-brand-2: var(--arrai-docs-brand);
+    --vp-c-brand-3: #2f8fff;
+    --vp-c-brand-soft: var(--arrai-docs-brand-soft);
+    --vp-c-bg: var(--arrai-docs-bg);
+    --vp-c-bg-alt: var(--arrai-docs-surface-muted);
+    --vp-c-bg-elv: var(--arrai-docs-chrome);
+    --vp-c-bg-soft: var(--arrai-docs-surface-muted);
+    --vp-c-divider: var(--arrai-docs-border);
+    --vp-c-gutter: var(--arrai-docs-border);
+    --vp-c-text-1: var(--arrai-docs-text);
+    --vp-c-text-2: var(--arrai-docs-text-muted);
+    --vp-c-text-3: #697789;
+    --vp-nav-bg-color: color-mix(in srgb, var(--arrai-docs-chrome) 92%, var(--vp-c-bg));
+    --vp-nav-logo-height: 34px;
+    --vp-sidebar-bg-color: var(--arrai-docs-surface-muted);
+    --vp-code-bg: var(--arrai-docs-code-bg);
+    --vp-code-block-bg: var(--arrai-docs-code-block-bg);
+    --vp-button-brand-bg: var(--arrai-docs-brand);
+    --vp-button-brand-hover-bg: var(--arrai-docs-brand-strong);
+    --vp-button-brand-active-bg: var(--arrai-docs-brand-strong);
+}
+
+.dark {
+    --arrai-docs-brand: #45a0ff;
+    --arrai-docs-brand-strong: #78bbff;
+    --arrai-docs-brand-soft: rgba(69, 160, 255, 0.16);
+    --arrai-docs-text: #eef4fb;
+    --arrai-docs-text-muted: #a6b2c0;
+    --arrai-docs-bg: #161a1f;
+    --arrai-docs-surface: #1b2027;
+    --arrai-docs-surface-muted: #11151a;
+    --arrai-docs-chrome: #07090c;
+    --arrai-docs-chrome-strong: #252c35;
+    --arrai-docs-border: #303844;
+    --arrai-docs-code-bg: #0d1116;
+    --arrai-docs-code-block-bg: #0d1116;
+    --arrai-docs-shadow: 0 1px 0 rgba(0, 0, 0, 0.42);
+}
+
+html,
+body {
+    background: var(--arrai-docs-bg);
+}
+
+body {
+    color: var(--arrai-docs-text);
+}
+
+.VPNavBar {
+    border-bottom: 1px solid var(--arrai-docs-chrome-strong);
+    box-shadow: var(--arrai-docs-shadow);
+}
+
+.VPNavBarTitle .title {
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0;
+}
+
+.VPNavBarTitle .logo {
+    margin-right: 10px;
+}
+
+.VPNavBarMenuLink,
+.VPNavBarMenuGroup .button {
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0;
+}
+
+.VPNavBarMenuLink.active,
+.VPNavBarMenuLink:hover,
+.VPNavBarMenuGroup .button:hover {
+    color: var(--arrai-docs-brand-strong);
+}
+
+.VPNavBarSearch .DocSearch-Button {
+    border: 1px solid var(--arrai-docs-border);
+    border-radius: 4px;
+    background: color-mix(in srgb, var(--arrai-docs-surface) 78%, var(--arrai-docs-bg));
+}
+
+.VPSidebar {
+    border-right: 1px solid var(--arrai-docs-border);
+}
+
+.VPSidebarItem .text {
+    font-size: 13px;
+    line-height: 1.35;
+}
+
+.VPSidebarItem.level-0 > .item > .text {
+    color: var(--arrai-docs-text);
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.VPSidebarItem.level-1 .link,
+.VPSidebarItem.level-2 .link,
+.VPSidebarItem.level-3 .link {
+    border-radius: 4px;
+}
+
+.VPSidebarItem.level-1 .link:hover,
+.VPSidebarItem.level-2 .link:hover,
+.VPSidebarItem.level-3 .link:hover {
+    background: color-mix(in srgb, var(--arrai-docs-brand) 7%, var(--arrai-docs-bg));
+}
+
+.VPSidebarItem.is-active > .item .link {
+    background: color-mix(in srgb, var(--arrai-docs-brand) 10%, var(--arrai-docs-bg));
+}
+
+.VPSidebarItem.is-active > .item .text {
+    color: var(--arrai-docs-brand-strong);
+    font-weight: 600;
+}
+
+.vp-doc {
+    font-size: 15px;
+}
+
+.vp-doc h1,
+.vp-doc h2,
+.vp-doc h3,
+.VPHomeHero .name,
+.VPHomeHero .text {
+    font-family: var(--vp-font-family-heading);
+}
+
+.vp-doc a {
+    color: var(--arrai-docs-brand-strong);
+    font-weight: 500;
+    text-decoration-color: color-mix(in srgb, currentColor 32%, var(--arrai-docs-bg));
+    text-underline-offset: 3px;
+}
+
+.vp-doc a:hover {
+    color: var(--arrai-docs-brand);
+    text-decoration-color: currentColor;
+}
+
+.vp-doc :not(pre) > code {
+    border: 1px solid color-mix(in srgb, var(--arrai-docs-border) 72%, var(--arrai-docs-bg));
+    border-radius: 4px;
+    color: var(--arrai-docs-text);
+    font-size: 0.88em;
+}
+
+.vp-doc table {
+    font-size: 14px;
+}
+
+.vp-doc th {
+    background: var(--arrai-docs-surface-muted);
+    color: var(--arrai-docs-text);
+    font-size: 12px;
+    font-weight: 600;
+}
+
+/* TODO(vitepress-v2): remove this VitePress 1 layout backport after upgrading. */
+.VPNavBar.has-sidebar .content {
+    padding-right: 0 !important;
+}
+
+.VPNavBar.has-sidebar .content-body {
+    padding-right: 32px !important;
+}
+
+@media (min-width: 1440px) {
+    .VPNavBar.has-sidebar .content-body {
+        padding-right: calc((100vw - var(--vp-layout-max-width)) / 2 + 32px) !important;
+    }
+
+    .VPSidebar {
+        width: calc((100vw - (var(--vp-layout-max-width) - 64px)) / 2 + var(--vp-sidebar-width) - 32px) !important;
+        padding-left: max(32px, calc((100vw - (var(--vp-layout-max-width) - 64px)) / 2)) !important;
+    }
+}

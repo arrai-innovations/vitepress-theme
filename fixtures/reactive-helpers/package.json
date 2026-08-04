@@ -1,0 +1,14 @@
+{
+    "name": "fixture-reactive-helpers",
+    "private": true,
+    "type": "module",
+    "scripts": {
+        "build": "vitepress build docs",
+        "dev": "vitepress dev docs"
+    },
+    "dependencies": {
+        "@arrai-innovations/vitepress-theme": "workspace:*",
+        "vitepress": "^1.6.4",
+        "vue": "^3.5.38"
+    }
+}
