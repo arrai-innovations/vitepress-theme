@@ -77,7 +77,8 @@ body {
 }
 
 .VPNavBarTitle .title {
-    font-size: 14px;
+    font-family: var(--vp-font-family-heading);
+    font-size: 26px;
     font-weight: 600;
     letter-spacing: 0;
 }
