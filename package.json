@@ -1,6 +1,6 @@
 {
     "name": "@arrai-innovations/vitepress-theme",
-    "version": "0.1.0",
+    "version": "1.0.0",
     "description": "The shared Arrai Innovations documentation theme for VitePress.",
     "type": "module",
     "license": "BSD-3-Clause",
