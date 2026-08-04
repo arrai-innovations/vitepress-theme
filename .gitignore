@@ -6,3 +6,5 @@ coverage/
 fixtures/*/docs/.vitepress/cache/
 fixtures/*/docs/.vitepress/.temp/
 fixtures/*/docs/.vitepress/dist/
+
+.idea/
