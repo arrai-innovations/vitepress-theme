@@ -1,0 +1,32 @@
+pre-commit:
+    parallel: false
+    commands:
+        eslint:
+            run: |
+                if [ -z "${CI:-}" ]; then
+                  exit 0
+                fi
+                pnpm lint
+        prettier:
+            run: |
+                if [ -z "${CI:-}" ]; then
+                  exit 0
+                fi
+                pnpm format
+        fix-eslint:
+            stage_fixed: true
+            glob: "**/*.{js,cjs,mjs,ts,vue}"
+            exclude:
+                - "**/node_modules/**"
+                - "**/coverage/**"
+                - "**/*.d.ts"
+            run: pnpm exec eslint --cache --fix --no-warn-ignored {staged_files}
+        fix-prettier:
+            stage_fixed: true
+            glob: "**/*.{css,vue,js,mjs,cjs,ts,json,md,yml,yaml,html}"
+            exclude:
+                - "**/node_modules/**"
+                - "**/coverage/**"
+                - "pnpm-lock.yaml"
+                - "**/AGENTS.md"
+            run: pnpm exec prettier --write {staged_files}

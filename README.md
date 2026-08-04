@@ -1,5 +1,13 @@
 # Arrai VitePress theme
 
+[![npm](https://img.shields.io/npm/v/%40arrai-innovations%2Fvitepress-theme.svg?style=for-the-badge)](https://www.npmjs.com/package/@arrai-innovations/vitepress-theme)
+![Tests](https://docs.arrai.dev/vitepress-theme/artifacts/main/tests.svg)
+[![Coverage](https://docs.arrai.dev/vitepress-theme/artifacts/main/tests.coverage.svg)](https://docs.arrai.dev/vitepress-theme/artifacts/main/coverage_tests/)
+![ESLint](https://docs.arrai.dev/vitepress-theme/artifacts/main/eslint.svg)
+![Prettier](https://docs.arrai.dev/vitepress-theme/artifacts/main/prettier.svg)
+![Audit](https://docs.arrai.dev/vitepress-theme/artifacts/main/pnpm-audit.svg)
+[![License: BSD-3-Clause](https://img.shields.io/badge/License-BSD--3--Clause-blue.svg?style=for-the-badge)](./LICENSE)
+
 The shared VitePress shell for Arrai Innovations public projects. It provides the common visual system, responsive
 breadcrumbs, and extension points needed by both small documentation sites and application-backed component docs.
 
