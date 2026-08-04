@@ -23,5 +23,4 @@ consuming repository.
 
 ## Committing
 
-- Do not run `git commit` for the user.
 - Use Conventional Commit suggestions without words beginning with `@`.
