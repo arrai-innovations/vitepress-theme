@@ -16,7 +16,7 @@
     --arrai-docs-chrome-strong: #d7dee8;
     --arrai-docs-border: #d9e2ec;
     --arrai-docs-code-bg: #edf2f7;
-    --arrai-docs-code-block-bg: #101820;
+    --arrai-docs-code-block-bg: var(--arrai-docs-surface-muted);
     --arrai-docs-shadow: 0 1px 0 rgba(17, 24, 39, 0.04);
 
     --vp-font-family-base: "IBM Plex Sans Variable", ui-sans-serif, system-ui, sans-serif;
