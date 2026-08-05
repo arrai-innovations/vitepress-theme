@@ -129,6 +129,7 @@ body {
 .VPSidebarItem.level-2 .link,
 .VPSidebarItem.level-3 .link {
     border-radius: 4px;
+    padding-left: 8px;
 }
 
 .VPSidebarItem.level-1 .link:hover,
