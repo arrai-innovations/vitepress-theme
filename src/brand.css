@@ -76,6 +76,10 @@ body {
     box-shadow: var(--arrai-docs-shadow);
 }
 
+.VPNavBar.home {
+    background-color: var(--vp-nav-bg-color);
+}
+
 .VPNavBarTitle .title {
     font-family: var(--vp-font-family-heading);
     font-size: 26px;
