@@ -84,7 +84,7 @@ body {
     font-family: var(--vp-font-family-heading);
     font-size: 26px;
     font-weight: 600;
-    letter-spacing: 0;
+    letter-spacing: normal;
 }
 
 .VPNavBarTitle .logo {
@@ -95,7 +95,7 @@ body {
 .VPNavBarMenuGroup .button {
     font-size: 13px;
     font-weight: 500;
-    letter-spacing: 0;
+    letter-spacing: normal;
 }
 
 .VPNavBarMenuLink.active,
@@ -156,6 +156,18 @@ body {
 .VPHomeHero .name,
 .VPHomeHero .text {
     font-family: var(--vp-font-family-heading);
+}
+
+.vp-doc h1,
+.vp-doc h2,
+.vp-doc h3,
+.vp-doc h4,
+.vp-doc h5,
+.vp-doc h6,
+.VPHomeHero .name,
+.VPHomeHero .text,
+.VPTeamPageTitle .title {
+    letter-spacing: normal;
 }
 
 .vp-doc a {
