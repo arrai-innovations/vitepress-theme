@@ -2,6 +2,7 @@ packages:
     - "fixtures/*"
 
 overrides:
+    "nanoid@<3.3.18": ">=3.3.18 <4"
     "vite@<6.4.3": ">=6.4.3 <7"
 
 allowBuilds:
