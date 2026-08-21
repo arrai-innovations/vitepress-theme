@@ -75,6 +75,14 @@ body {
     background-color: var(--vp-nav-bg-color);
 }
 
+:root {
+    --arrai-docs-nav-title-offset-y: -0.2rem;
+}
+
+.VPNavBarTitle .title > span {
+    transform: translateY(var(--arrai-docs-nav-title-offset-y));
+}
+
 .VPNavBarTitle .title {
     font-family: var(--vp-font-family-heading);
     font-size: 26px;
