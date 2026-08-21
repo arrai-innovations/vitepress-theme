@@ -71,11 +71,6 @@ body {
     color: var(--arrai-docs-text);
 }
 
-.VPNavBar {
-    border-bottom: 1px solid var(--arrai-docs-chrome-strong);
-    box-shadow: var(--arrai-docs-shadow);
-}
-
 .VPNavBar.home {
     background-color: var(--vp-nav-bg-color);
 }
@@ -85,6 +80,7 @@ body {
     font-size: 26px;
     font-weight: 600;
     letter-spacing: normal;
+    border-bottom: 0;
 }
 
 .VPNavBarTitle .logo {
