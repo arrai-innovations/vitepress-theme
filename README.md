@@ -98,6 +98,50 @@ production site. Its optional `getTitle({ filePath, relativePath, route, source 
 existing frontmatter or generated-reference parser. A virtual route also accepts `{ text, link }` when a custom route is
 safe to link.
 
+## Social cards
+
+Link-preview crawlers read the served HTML and run no JavaScript, so Open Graph and Twitter card tags have to be in the
+pre-rendered page. `buildSocialHead` shapes them for one page, and `transformPageData` puts them in every page's head.
+Crawlers resolve nothing relative and ignore SVG, so `siteUrl` is required, every emitted URL is absolute, and the card
+image should be a PNG or JPEG.
+
+```js
+// docs/.vitepress/config.mjs
+import { buildSocialHead } from "@arrai-innovations/vitepress-theme/config";
+
+export default defineConfig({
+    transformPageData(pageData, { siteConfig }) {
+        return {
+            frontmatter: {
+                ...pageData.frontmatter,
+                head: [
+                    ...(pageData.frontmatter.head ?? []),
+                    ...buildSocialHead({
+                        siteUrl: "https://docs.arrai.dev",
+                        base: siteConfig.site.base,
+                        pageData,
+                        siteData: siteConfig.site,
+                        image: "/social-card.png",
+                        imageSize: { width: 1200, height: 630 },
+                        imageAlt: "reactive-helpers documentation",
+                        themeColor: "#1d4ed8",
+                    }),
+                ],
+            },
+        };
+    },
+});
+```
+
+Titles and descriptions come from the page's frontmatter, fall back to the resolved page data, then to the site title
+and description. `image` accepts a site-root-relative path, which is resolved against `siteUrl` and `base`, or an
+absolute URL for an externally hosted card. `imageSize`, `imageAlt`, `themeColor`, and `cardType` are optional;
+`cardType` defaults to `summary_large_image`.
+
+Page URLs use the same path rule as breadcrumb routes, in clean-URL form: `index.md` becomes the directory URL with a
+trailing slash, and other pages drop the `.md` extension. Serve extensionless paths, or set `cleanUrls`, so `og:url`
+matches the URL a reader shares.
+
 ## Extend the theme
 
 Use `createArraiTheme` when a downstream site registers components or adds content around the shared layout:
@@ -171,6 +215,7 @@ explicit.
 | `Breadcrumbs`                          | Shared breadcrumb component                         |
 | `breadcrumbsForRoute`                  | Pure route-to-crumb utility                         |
 | `buildBreadcrumbRoutes` from `/config` | Node-side Markdown route indexer                    |
+| `buildSocialHead` from `/config`       | Node-side Open Graph and Twitter card tags          |
 | `/brand.css`                           | Styles without the theme object                     |
 
 ## Licence

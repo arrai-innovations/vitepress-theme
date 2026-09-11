@@ -1,6 +1,6 @@
 import { fileURLToPath } from "node:url";
 
-import { buildBreadcrumbRoutes } from "@arrai-innovations/vitepress-theme/config";
+import { buildBreadcrumbRoutes, buildSocialHead } from "@arrai-innovations/vitepress-theme/config";
 import { defineConfig } from "vitepress";
 
 const docsRoot = fileURLToPath(new URL("..", import.meta.url));
@@ -14,6 +14,26 @@ const routes = buildBreadcrumbRoutes({
 export default defineConfig({
     title: "reactive-helpers",
     description: "Reactive composition utilities for Vue 3.",
+    transformPageData(pageData, { siteConfig }) {
+        return {
+            frontmatter: {
+                ...pageData.frontmatter,
+                head: [
+                    ...(pageData.frontmatter.head ?? []),
+                    ...buildSocialHead({
+                        siteUrl: "https://docs.arrai.dev",
+                        base: siteConfig.site.base,
+                        pageData,
+                        siteData: siteConfig.site,
+                        image: "/social-card.png",
+                        imageSize: { width: 1200, height: 630 },
+                        imageAlt: "reactive-helpers documentation",
+                        themeColor: "#1d4ed8",
+                    }),
+                ],
+            },
+        };
+    },
     themeConfig: {
         breadcrumbs: { routes },
         nav: [
