@@ -134,7 +134,7 @@ export const buildBreadcrumbRoutes = ({ docsRoot, exclude = () => false, getTitl
  * them, reusing the page-path rule that also produces breadcrumb routes.
  *
  * @param {object} options - Card options.
- * @param {string} options.siteUrl - Absolute site origin, such as `https://docs.arrai.dev`.
+ * @param {string} options.siteUrl - Absolute site origin, such as `https://docs.example.com`.
  * @param {string} [options.base] - Deployment base path, matching the VitePress `base`.
  * @param {object} options.pageData - VitePress page data for the page being rendered.
  * @param {object} [options.siteData] - VitePress site data, used for title and description fallbacks.

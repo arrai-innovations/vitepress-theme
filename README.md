@@ -117,7 +117,7 @@ export default defineConfig({
                 head: [
                     ...(pageData.frontmatter.head ?? []),
                     ...buildSocialHead({
-                        siteUrl: "https://docs.arrai.dev",
+                        siteUrl: "https://docs.example.com",
                         base: siteConfig.site.base,
                         pageData,
                         siteData: siteConfig.site,
