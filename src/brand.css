@@ -89,7 +89,7 @@ body {
 }
 
 :root {
-    --arrai-docs-nav-title-offset-y: -0.2rem;
+    --arrai-docs-nav-title-offset-y: -0.35rem;
 }
 
 .VPNavBarTitle .title > span {
@@ -98,7 +98,7 @@ body {
 
 .VPNavBarTitle .title {
     font-family: var(--vp-font-family-heading);
-    font-size: 26px;
+    font-size: 1.8rem;
     font-weight: 600;
     letter-spacing: normal;
     border-bottom: 0;
