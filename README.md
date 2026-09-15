@@ -36,6 +36,17 @@ export { default } from "@arrai-innovations/vitepress-theme";
 The package imports the Arrai styles and locally served variable fonts. The font dependencies include their own SIL Open
 Font License notices.
 
+## Colours
+
+The identity palette stays the same in both modes: blue `#0077f7`, dark blue `#001c30`, and grey `#e5e5e5`. Dark mode
+uses the dark blue for reading surfaces and grey for body text. Supporting surfaces and text colours are explicit mixes
+of the palette with white or black, rather than independent colour choices.
+
+Use `--arrai-docs-brand` for prominent brand accents and `--vp-c-brand-1` for small links and active navigation. Links
+use a shade in light mode and a tint in dark mode for contrast; `--arrai-docs-brand-strong` remains an alias for that
+text colour. Custom buttons should use the `--vp-button-brand-*` background and text tokens together, including their
+hover and active states. Button fills retain the canonical blue with dark labels in both modes.
+
 ## Breadcrumbs
 
 Build route metadata in the VitePress config. Existing Markdown pages become safe links. Structural routes that have no
