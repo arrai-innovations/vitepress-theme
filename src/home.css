@@ -1,0 +1,142 @@
+/* Opt in with hero.layout: wide. Keep the standard hero fields and layout slots.
+ * Both hero classes let these rules override VitePress's scoped has-image rules. */
+.arrai-wide-home .VPHomeHero.VPHero {
+    margin-top: 0;
+    padding: 5.5rem 2.5rem 5rem;
+}
+
+.arrai-wide-home .VPHomeHero.VPHero .container {
+    display: grid;
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+    align-items: center;
+    gap: 3rem;
+    max-width: 85rem;
+    text-align: left;
+}
+
+.arrai-wide-home .VPHomeHero.VPHero .main {
+    order: 0;
+    width: auto;
+    min-width: 0;
+    max-width: none;
+}
+
+.arrai-wide-home .VPHomeHero.VPHero .heading {
+    display: block;
+    text-wrap: balance;
+}
+
+.arrai-wide-home .VPHomeHero.VPHero .name,
+.arrai-wide-home .VPHomeHero.VPHero .text {
+    display: block;
+    width: auto;
+    max-width: none;
+    margin: 0;
+    font-size: clamp(2.375rem, 3.6vw, 3.375rem);
+    font-weight: 600;
+    line-height: 1.12;
+    letter-spacing: 0.03125rem;
+    white-space: normal;
+}
+
+.arrai-wide-home .VPHomeHero.VPHero .tagline {
+    max-width: 33.75rem;
+    margin: 1.5rem 0 0;
+    padding: 0;
+    font-size: 1.125rem;
+    font-weight: 400;
+    line-height: 1.65;
+    white-space: normal;
+}
+
+.arrai-wide-home .VPHomeHero.VPHero .actions {
+    justify-content: flex-start;
+    gap: 0.75rem;
+    margin: 1.875rem 0 0;
+    padding: 0;
+}
+
+.arrai-wide-home .VPHomeHero.VPHero .action {
+    padding: 0;
+}
+
+.arrai-wide-home .VPHomeHero.VPHero .VPButton {
+    border-radius: 0.375rem;
+    padding: 0.1875rem 1.25rem;
+    font-size: 0.875rem;
+    line-height: 2.375rem;
+}
+
+.arrai-wide-home .VPHomeHero.VPHero .image {
+    order: 1;
+    min-width: 0;
+    margin: 0;
+}
+
+.arrai-wide-home .VPHomeHero.VPHero .image-container {
+    display: block;
+    width: 100%;
+    height: auto;
+    transform: none;
+}
+
+.arrai-wide-home .VPHomeHero.VPHero .image-bg {
+    display: none;
+}
+
+.arrai-wide-home .VPHomeHero.VPHero .image-src {
+    position: static;
+    width: 100%;
+    max-width: none;
+    max-height: none;
+    transform: none;
+}
+
+.arrai-wide-home .VPHomeHero.VPHero:not(.has-image) .container {
+    grid-template-columns: minmax(0, 1fr);
+}
+
+.arrai-wide-home .VPHomeHero.VPHero .arrai-hero-eyebrow {
+    margin: 0 0 1.25rem;
+    color: var(--vp-c-brand-1);
+    font-family: var(--vp-font-family-heading);
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+
+.arrai-wide-home .VPHomeHero.VPHero .arrai-hero-note {
+    margin: 1.125rem 0 0;
+    color: var(--vp-c-text-2);
+    font-size: 0.8125rem;
+    line-height: 1.6;
+}
+
+/* Keep wide screenshots and code examples readable before opening two columns. */
+@media (max-width: 79.9375rem) {
+    .arrai-wide-home .VPHomeHero.VPHero {
+        padding-top: 3rem;
+        padding-bottom: 3rem;
+    }
+
+    .arrai-wide-home .VPHomeHero.VPHero .container {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 2.5rem;
+    }
+
+    .arrai-wide-home .VPHomeHero.VPHero .main {
+        max-width: 42.5rem;
+    }
+}
+
+@media (max-width: 39.9375rem) {
+    .arrai-wide-home .VPHomeHero.VPHero {
+        padding-right: 1.5rem;
+        padding-left: 1.5rem;
+    }
+
+    .arrai-wide-home .VPHomeHero.VPHero .tagline {
+        font-size: 1rem;
+    }
+}

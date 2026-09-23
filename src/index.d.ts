@@ -23,6 +23,7 @@ export type BreadcrumbRouteIndex = Record<string, string | BreadcrumbRoute>;
 
 export const ArraiLayout: Component;
 export const Breadcrumbs: Component;
+export const ArraiPreview: Component;
 
 declare const theme: Theme;
 export default theme;

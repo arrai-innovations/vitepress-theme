@@ -3,6 +3,7 @@ import DefaultTheme from "vitepress/theme";
 
 import Layout from "./Layout.vue";
 import "./brand.css";
+import "./home.css";
 
 /**
  * Create an Arrai theme with product-specific layout slots and application setup.
@@ -23,6 +24,7 @@ export const createArraiTheme = ({ layoutSlots = {}, enhanceApp } = {}) => ({
 
 export { default as ArraiLayout } from "./Layout.vue";
 export { default as Breadcrumbs } from "./components/Breadcrumbs.vue";
+export { default as ArraiPreview } from "./components/ArraiPreview.vue";
 export { breadcrumbsForRoute } from "./breadcrumbs.js";
 
 export default createArraiTheme();

@@ -179,11 +179,52 @@ from VitePress's default theme, including `layout-top`, `layout-bottom`, `doc-be
 
 ## Downstream adoption
 
+### Wide homepage heroes
+
+Set `hero.layout: wide` to place the standard VitePress hero text and actions beside a wide screenshot or code panel.
+The layout stacks the panel below the text at widths below 80rem. Other homepages retain the default VitePress layout.
+The standard `hero` fields and `home-hero-*` layout slots remain available. Optional `hero.eyebrow` and `hero.note`
+fields add a short label above the heading and supporting text below the actions; the corresponding layout slots
+override those defaults.
+
+```yaml
+hero:
+    layout: wide
+    name: Project name
+    text: What the project helps you do
+    tagline: A short description of the result.
+    actions:
+        - theme: brand
+          text: Get started
+          link: /guide/
+```
+
+Render a project component through `layoutSlots["home-hero-image"]`. Use `ArraiPreview` inside that component for the
+shared frame, optional label bar, and caption:
+
+```vue
+<script setup>
+import { ArraiPreview } from "@arrai-innovations/vitepress-theme";
+import { VPImage } from "vitepress/theme-without-fonts";
+</script>
+
+<template>
+    <ArraiPreview label="Example application" description="Preview">
+        <VPImage :image="{ src: '/preview.png', alt: 'The application showing a list of records' }" />
+        <template #caption>A working application.</template>
+    </ArraiPreview>
+</template>
+```
+
+`label` and `description` are optional strings. The description is hidden on narrow screens. The default slot has no
+padding so screenshots can fill the frame; code panels own their code formatting and padding. The optional `caption`
+slot renders below the frame. Keep product text, image assets, and code examples in the consuming site.
+
 ### reactive-helpers
 
-The `fixtures/reactive-helpers` site models the intended minimal integration:
+The `fixtures/reactive-helpers` site models the homepage integration with a code preview:
 
-1. Replace the local theme export with the package default.
+1. Use `createArraiTheme` to supply the code preview through `home-hero-image`.
 2. Build breadcrumb routes in `config.mjs` using the existing draft exclusion rules.
 3. Declare `config`, `use`, and `utils` as non-linking virtual routes until group landing pages exist.
 4. Retain the downstream cube logo, favicons, navigation, sidebar, home content, and deployment base.
@@ -218,16 +259,17 @@ explicit.
 
 ## Public API
 
-| Export                                 | Purpose                                             |
-| -------------------------------------- | --------------------------------------------------- |
-| Package default                        | Ready-to-use Arrai theme                            |
-| `createArraiTheme`                     | Theme factory for application and layout extensions |
-| `ArraiLayout`                          | Shared layout component                             |
-| `Breadcrumbs`                          | Shared breadcrumb component                         |
-| `breadcrumbsForRoute`                  | Pure route-to-crumb utility                         |
-| `buildBreadcrumbRoutes` from `/config` | Node-side Markdown route indexer                    |
-| `buildSocialHead` from `/config`       | Node-side Open Graph and Twitter card tags          |
-| `/brand.css`                           | Styles without the theme object                     |
+| Export                                 | Purpose                                                |
+| -------------------------------------- | ------------------------------------------------------ |
+| Package default                        | Ready-to-use Arrai theme                               |
+| `createArraiTheme`                     | Theme factory for application and layout extensions    |
+| `ArraiLayout`                          | Shared layout component                                |
+| `Breadcrumbs`                          | Shared breadcrumb component                            |
+| `ArraiPreview`                         | Homepage preview frame with optional label and caption |
+| `breadcrumbsForRoute`                  | Pure route-to-crumb utility                            |
+| `buildBreadcrumbRoutes` from `/config` | Node-side Markdown route indexer                       |
+| `buildSocialHead` from `/config`       | Node-side Open Graph and Twitter card tags             |
+| `/brand.css`                           | Styles without the theme object                        |
 
 ## Licence
 

@@ -29,7 +29,14 @@ const { visible: hasBreadcrumb } = useBreadcrumbs();
 </script>
 
 <template>
-    <div v-if="frontmatter.layout !== false" class="Layout" :class="{ 'has-breadcrumb': hasBreadcrumb }">
+    <div
+        v-if="frontmatter.layout !== false"
+        class="Layout"
+        :class="{
+            'has-breadcrumb': hasBreadcrumb,
+            'arrai-wide-home': frontmatter.layout === 'home' && frontmatter.hero?.layout === 'wide',
+        }"
+    >
         <slot name="layout-top" />
         <VPSkipLink />
         <VPBackdrop class="backdrop" :show="isSidebarOpen" @click="closeSidebar" />
@@ -54,10 +61,18 @@ const { visible: hasBreadcrumb } = useBreadcrumbs();
             <template #page-bottom><slot name="page-bottom" /></template>
             <template #not-found><slot name="not-found" /></template>
             <template #home-hero-before><slot name="home-hero-before" /></template>
-            <template #home-hero-info-before><slot name="home-hero-info-before" /></template>
+            <template #home-hero-info-before>
+                <slot name="home-hero-info-before">
+                    <p v-if="frontmatter.hero?.eyebrow" class="arrai-hero-eyebrow">{{ frontmatter.hero.eyebrow }}</p>
+                </slot>
+            </template>
             <template #home-hero-info><slot name="home-hero-info" /></template>
             <template #home-hero-info-after><slot name="home-hero-info-after" /></template>
-            <template #home-hero-actions-after><slot name="home-hero-actions-after" /></template>
+            <template #home-hero-actions-after>
+                <slot name="home-hero-actions-after">
+                    <p v-if="frontmatter.hero?.note" class="arrai-hero-note">{{ frontmatter.hero.note }}</p>
+                </slot>
+            </template>
             <template #home-hero-image><slot name="home-hero-image" /></template>
             <template #home-hero-after><slot name="home-hero-after" /></template>
             <template #home-features-before><slot name="home-features-before" /></template>
