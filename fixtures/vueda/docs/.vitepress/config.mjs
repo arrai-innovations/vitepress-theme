@@ -40,6 +40,7 @@ export default defineConfig({
         ],
         sidebar: [
             { text: "Core Concepts", link: "/core-concepts/metadata" },
+            { text: "Custom containers", link: "/core-concepts/containers" },
             { text: "Button", link: "/reference/api/client/button" },
         ],
     },
