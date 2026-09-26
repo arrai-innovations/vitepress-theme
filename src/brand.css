@@ -24,6 +24,42 @@
     --arrai-docs-code-bg: var(--arrai-docs-surface-muted);
     --arrai-docs-code-block-bg: var(--arrai-docs-surface-muted);
     --arrai-docs-shadow: 0 1px 0 color-mix(in srgb, var(--arrai-docs-navy) 4%, transparent);
+    /*
+     * Container backgrounds are opaque tints over a neutral base. VitePress's translucent soft colours shift towards
+     * green and magenta over navy, so containers do not use them. The soft primitives remain tuned for a neutral
+     * background; check them over navy before using one directly.
+     */
+    --arrai-docs-container-base: var(--arrai-docs-bg);
+    --arrai-docs-container-tint: 14%;
+    --arrai-docs-container-grey: #8e96aa;
+    --arrai-docs-container-purple: #9f7aea;
+    --arrai-docs-container-yellow: #eab308;
+    --arrai-docs-container-red: #f43f5e;
+    --arrai-docs-container-info-bg: color-mix(
+        in srgb,
+        var(--arrai-docs-container-grey) var(--arrai-docs-container-tint),
+        var(--arrai-docs-container-base)
+    );
+    --arrai-docs-container-tip-bg: color-mix(
+        in srgb,
+        var(--arrai-docs-brand) var(--arrai-docs-container-tint),
+        var(--arrai-docs-container-base)
+    );
+    --arrai-docs-container-important-bg: color-mix(
+        in srgb,
+        var(--arrai-docs-container-purple) var(--arrai-docs-container-tint),
+        var(--arrai-docs-container-base)
+    );
+    --arrai-docs-container-warning-bg: color-mix(
+        in srgb,
+        var(--arrai-docs-container-yellow) var(--arrai-docs-container-tint),
+        var(--arrai-docs-container-base)
+    );
+    --arrai-docs-container-danger-bg: color-mix(
+        in srgb,
+        var(--arrai-docs-container-red) var(--arrai-docs-container-tint),
+        var(--arrai-docs-container-base)
+    );
 
     --vp-font-family-base: "IBM Plex Sans Variable", ui-sans-serif, system-ui, sans-serif;
     --vp-font-family-heading: "Darker Grotesque Variable", ui-sans-serif, system-ui, sans-serif;
@@ -46,6 +82,13 @@
     --vp-sidebar-bg-color: var(--arrai-docs-surface-muted);
     --vp-code-bg: var(--arrai-docs-code-bg);
     --vp-code-block-bg: var(--arrai-docs-code-block-bg);
+    --vp-custom-block-info-bg: var(--arrai-docs-container-info-bg);
+    --vp-custom-block-note-bg: var(--arrai-docs-container-info-bg);
+    --vp-custom-block-tip-bg: var(--arrai-docs-container-tip-bg);
+    --vp-custom-block-important-bg: var(--arrai-docs-container-important-bg);
+    --vp-custom-block-warning-bg: var(--arrai-docs-container-warning-bg);
+    --vp-custom-block-danger-bg: var(--arrai-docs-container-danger-bg);
+    --vp-custom-block-caution-bg: var(--arrai-docs-container-danger-bg);
     /* Dark labels keep canonical blue button fills readable in both modes. */
     --vp-button-brand-text: color-mix(in srgb, var(--arrai-docs-navy) 50%, black);
     --vp-button-brand-hover-text: var(--vp-button-brand-text);
@@ -73,6 +116,11 @@
     --arrai-docs-code-bg: var(--arrai-docs-chrome);
     --arrai-docs-code-block-bg: var(--arrai-docs-chrome);
     --arrai-docs-shadow: 0 1px 0 rgba(0, 0, 0, 0.42);
+    /* VitePress's default dark background. Tints over navy lose their hue. */
+    --arrai-docs-container-base: #1b1b1f;
+    --arrai-docs-container-tint: 16%;
+    /* Neutral containers follow the navy page instead of VitePress's grey. */
+    --arrai-docs-container-info-bg: color-mix(in srgb, var(--arrai-docs-grey) 10%, var(--arrai-docs-bg));
 }
 
 html,
